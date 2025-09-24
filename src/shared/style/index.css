@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.container{
+    max-width: 1204px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+
+
+
+.swiper {
+  width: 100%;
+  max-width: 900px; 
+  margin: 30px auto; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 16px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 250px; 
+  object-fit: cover;
+  border-radius: 8px; 
+}
+
+
+.mySwiper2 {
+  height: 400px;
+  width: 100%;
+}
+
+
+.moveSwiper {
+  height: 200px;
+  padding: 10px 0;
+}
+
+.moveSwiper .swiper-slide {
+  width: 20%;
+  height: 100%;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.moveSwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+body {
+  background: #111;
+  color: #fff;
+}
+
+
+
+
+
+  
+  /* .swiper {
+    width: 100%;
+    height: 100%;
+  } */
+  
+  /* .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #444; */
+  
+    /* Center slide text vertically */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+
+
+
+
+
+  @keyframes ssr-loading-spacing {
+    0%   { stroke-dasharray: 0, 300; stroke-dashoffset: 0; }
+    50%  { stroke-dasharray: 150, 300; stroke-dashoffset: -75; }
+    100% { stroke-dasharray: 0, 300; stroke-dashoffset: -150; }
+  }
+  
+  @keyframes ssr-loading-color {
+    0%   { stroke: blue; }
+    50%  { stroke: red; }
+    100% { stroke: blue; }
+  }
