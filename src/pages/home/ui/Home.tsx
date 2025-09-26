@@ -8,7 +8,7 @@ export const Home = memo(() => {
   const {data} = getMovies()
   
   return <div>
-    <Hero seans={data?.results?.slice(0,8)} />
-    <MovieList movies={data?.results?.slice(0, 8)}/>
+    <Hero data={data?.results} />
+    <MovieList movies={data?.results.slice(0, 4)}/>
   </div>;
 });

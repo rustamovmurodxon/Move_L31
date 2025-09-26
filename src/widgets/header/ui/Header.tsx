@@ -12,33 +12,54 @@ export const Header = memo(() => {
       <div className="container">
         <div className="flex justify-between items-center py-3">
           <div>
-            <img src={logo} alt="" />
+            <NavLink to={"/"}>
+              <img src={logo} alt="" />
+            </NavLink>
           </div>
-          <div className="flex text-white  gap-7 ">
-            <div className="text-xl">
-              <NavLink to={"/"}>
-                <img src={home} alt="" className="pl-3" />
-                Home
-              </NavLink>
-            </div>
-            <div className="text-xl">
-              <NavLink to={"/movie"}>
-                <img src={seans} alt="" className="pl-3" />
-                Movie
-              </NavLink>
-            </div>
-            <div className="text-xl">
-              <NavLink to={"/ticket"}>
-                <img src={tickets} alt="" className="pl-3" />
-                Ticket
-              </NavLink>
-            </div>
-            <div className="text-xl">
-              <NavLink to={"/search"}>
-                <img src={search} alt="" className="pl-3" />
-                Search
-              </NavLink>
-            </div>
+
+          <div className="">
+            <ul className="flex text-white  gap-7 ">
+              <li>
+                <NavLink to={"/"} className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 flex flex-col items-center text-center"
+                    : "text-[#A1A1A1] flex flex-col items-center text-center hover:text-[#C61F1F]"
+                } >
+                  <img src={home} alt="" className="" />
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/movie"} className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 flex flex-col items-center text-center"
+                    : "text-[#A1A1A1] flex flex-col items-center text-center hover:text-[#C61F1F]"
+                } >
+                  <img src={seans} alt="" className="" />
+                  Movie
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/ticket"} className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 flex flex-col items-center text-center"
+                    : "text-[#A1A1A1] flex flex-col items-center text-center hover:text-[#C61F1F]"
+                } >
+                  <img src={tickets} alt="" className="" />
+                  Ticket
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/search"} className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 flex flex-col items-center text-center"
+                    : "text-[#A1A1A1] flex flex-col items-center text-center hover:text-[#C61F1F]"
+                } >
+                  <img src={search} alt="" className="" />
+                  Search
+                </NavLink>
+              </li>
+            </ul>
           </div>
           <div className="text-white flex gap-3">
             <select name="language" id="language">

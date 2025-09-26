@@ -1,112 +1,42 @@
-import React, { useRef, useState, type FC } from 'react';
+import { useMovie } from '@/entities/movie';
+import { Movie_pagination } from '@/features/move_pagination';
+import { MovieList } from '@/widgets/movie-list';
+import { MovieSort } from '@/widgets/movie_sorted';
 import { memo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
+export const Movie = memo(() => {
+  // const { getMovies } = useMovie();
+  // const { data } = getMovies();
 
 
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+  const { getMovies } = useMovie();
+  const [searchParams] = useSearchParams();
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+  const page = searchParams.get("page") ?? "1";
+  const sort_by = searchParams.get("sort") ?? "";
+  const gte = searchParams.get("gte") ?? "";
+  const lte = searchParams.get("lte") ?? "";
+  const with_genres = searchParams.get("with_genres") ?? "";
 
-// import './styles.css';
+  const { data } = getMovies({
+    page,
+    sort_by,
+    "primary_release_date.gte": gte,
+    "primary_release_date.lte": lte,
+    with_genres,
+  });
 
-// import required modules
-import { Pagination } from 'swiper/modules';
-// import { createImageUrl } from '@/shared/utils';
-import type { IMovie } from '@/entities/movie';
-interface Props {
-  movies: IMovie[];
-}
-export const Movie: FC<Props> = memo((props:any) => {
-  // const { movie } = props;
 
+  
   return (
-    <div>
+    <div className="About">
       <div>
-     <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="h-40 moveSwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
+        <MovieSort/>
       </div>
-      <div className='h-3'></div>
-      <div>
-     <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="h-40 moveSwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-      </div>
-      <div className='h-3'></div>
-      <div>
-     <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="h-40 moveSwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-      </div>
+      <MovieList movies={data?.results}/>
+      <Movie_pagination page={page} total_pages={data?.total_results} />
     </div>
   );
 });
-
-
-
-// Home +
-// Movie +
-// Bookmark -
-// Search -
-
-
-// Header - navigation
-
-
-// npm i -g @feature-sliced/cli
-
-// fsd entities category -s api model ui
-// fsd pages profile -s ui lorem
-// fsd widgets profile -s ui
-// fsd features profile -s ui

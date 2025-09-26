@@ -25,3 +25,29 @@ export interface Review {
     updated_at: string;     
     url: string;
   }
+
+  export interface IMovieParams {
+    page: string;
+    sort_by?: string;
+    "primary_release_date.gte"?: string;
+    "primary_release_date.lte"?: string;
+    with_genres?: string;
+  }
+
+  
+export interface ICrew {
+  adult: boolean;
+  also_known_as: string[];
+  biography: string;
+  birthday: string; 
+  deathday: string | null;
+  gender: number; 
+  homepage: string | null;
+  id: number;
+  imdb_id: string;
+  known_for_department: string;
+  name: string;
+  place_of_birth: string | null;
+  popularity: number;
+  profile_path: string | null;
+}

@@ -12,7 +12,7 @@ export const MovieCard:FC<Props> = memo((props) => {
     const navigate = useNavigate()
     
   return (
-    <div className="bg-white dark:bg-slate-900">
+    <div className="bg-gray-900 text-gray-400 dark:bg-slate-900">
         <div onClick={()=> navigate(`/movie/${movie.id}`)}>
             <img src={createImageUrl(movie.poster_path)} alt="" />
         </div>

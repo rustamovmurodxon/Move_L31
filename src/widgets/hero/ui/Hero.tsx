@@ -1,75 +1,102 @@
-import { useMovie, type IMovie } from "@/entities/movie";
-import { memo, type FC } from "react";
-
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import { memo, useState, type FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-
-// import './styles.css';
-
-// import required modules
-import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 import { createImageUrl } from "@/shared/utils";
-interface Props {
-  movies: IMovie[];
-}
-export const Hero: FC<Props> = memo((props:any) => {
-  const { seans } = props;
-  const { getMovies } = useMovie();
-  const { data } = getMovies();
-  console.log(data?.results?.slice(0, 6));
+import { FaPlay } from "react-icons/fa";
+import type { IMovie } from "@/entities/movie";
+import { useNavigate } from "react-router-dom";
 
-  const [thumbsSwiper, setThumbsSwiper] = useState<any | null>(null);
+interface Props {
+  data: IMovie[];
+}
+
+export const Hero: FC<Props> = memo(({ data }) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+const navigate =useNavigate()
   return (
-    <div>
-      <>
+    <div className="container mx-auto px-4">
+      <div className="mb-1">
         <Swiper
           style={
             {
               "--swiper-navigation-color": "#fff",
               "--swiper-pagination-color": "#fff",
+              borderRadius: "12px",
+              maxHeight: "640px",
+              width: "100%",
+              height: "640px",
             } as React.CSSProperties
           }
-          loop={true}
+          loop
           spaceBetween={10}
-          navigation={true}
+          navigation
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2"
+          className="mySwiper2 container"
         >
-          {seans?.map((item: any) => (
-            <SwiperSlide>
-              <img src={createImageUrl(item.poster_path)} />
+          {data?.map((item: IMovie) => (
+            <SwiperSlide key={item.id}>
+              <div onClick={()=> navigate(`/movie/${item.id}`)}
+                className="w-full h-full rounded-xl bg-cover bg-center bg-no-repeat flex items-end justify-center p-6"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${createImageUrl(
+                    item?.poster_path
+                  )})`,
+                }}
+                title={item.title}
+              >
+                <div className="text-center max-w-4xl px-6 ">
+                  <div className="bg-white text-[#C61F1F] cursor-pointer rounded-full p-6 flex absolute top-[45%] left-[47%] ">
+                    <FaPlay className="text-lg" />
+                  </div>
+                </div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
-
-      </>
-
-      <div></div>
-
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiper"
-      >
-      {seans?.map((item: any) => (
-            <SwiperSlide>
-              <img src={createImageUrl(item.poster_path)} />
+      </div>
+      <div className="max-w-2xl mx-auto">
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop
+          spaceBetween={10}
+          slidesPerView={6}
+          freeMode
+          watchSlidesProgress
+          modules={[FreeMode, Navigation, Thumbs]}
+          breakpoints={{
+            320: {
+              slidesPerView: 3,
+            },
+            640: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 5,
+            },
+            1024: {
+              slidesPerView: 6,
+            },
+          }}
+          className="thumbs-swiper"
+        >
+          {data?.map((item: any) => (
+            <SwiperSlide key={item.id} className="cursor-pointer">
+              <div
+                className="h-[120px] overflow-hidden rounded-lg mx-auto"
+                title={item.title}
+              >
+                <img
+                  src={createImageUrl(item.backdrop_path)}
+                  alt={item.title}
+                  className="w-full h-full object-cover opacity-50  hover:opacity-100 transition-opacity"
+                />
+              </div>
             </SwiperSlide>
           ))}
-      </Swiper>
+        </Swiper>
+      </div>
     </div>
   );
 });

@@ -19,13 +19,13 @@ export const Loading = () => {
           fill="none"
           points="0,0,100,0,100,100"
           strokeWidth="15"
-          className="stroke-blue-500 animate-[ssr-loading-spacing_1.2s_ease-in_infinite,ssr-loading-color_4.8s_linear_infinite] origin-center"
+          className="stroke-cyan-400 animate-[ssr-loading-spacing_1.2s_ease-in_infinite,ssr-loading-color_4.8s_linear_infinite] origin-center"
         ></polyline>
         <polyline
           fill="none"
           points="0,0,0,100,100,100"
           strokeWidth="15"
-          className="stroke-blue-500 animate-[ssr-loading-spacing_1.2s_ease-in_infinite,ssr-loading-color_4.8s_linear_infinite] origin-center"
+          className="stroke-red-600 animate-[ssr-loading-spacing_1.2s_ease-in_infinite,ssr-loading-color_4.8s_linear_infinite] origin-center"
         ></polyline>
       </svg>
 

@@ -16,7 +16,7 @@
 
 .swiper {
   width: 100%;
-  max-width: 900px; 
+  /* max-width: 1000px;  */
   margin: 30px auto; 
   border-radius: 12px; 
   overflow: hidden; 
@@ -68,38 +68,6 @@ body {
   background: #111;
   color: #fff;
 }
-
-
-
-
-
-  
-  /* .swiper {
-    width: 100%;
-    height: 100%;
-  } */
-  
-  /* .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #444; */
-  
-    /* Center slide text vertically */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  
-  /* .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
-
-
-
-
 
   @keyframes ssr-loading-spacing {
     0%   { stroke-dasharray: 0, 300; stroke-dashoffset: 0; }
