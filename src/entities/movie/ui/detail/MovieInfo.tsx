@@ -8,12 +8,12 @@ interface Props {
   id: string;
 }
 
-interface IReview {
-  id: string;
-  author: string;
-  content: string;
-  created_at: string;
-}
+// interface IReview {
+//   id: string;
+//   author: string;
+//   content: string;
+//   created_at: string;
+// }
 
 const tabs = [
   { path: "", label: "Review" },
@@ -25,7 +25,7 @@ export const MovieInfo: FC<Props> = memo((props) => {
   const { getMovieById, getMovieInfo } = useMovie();
   const { data } = getMovieById(id);
   const { data: imageData } = getMovieInfo(id, "images");
-  const { data: reviews } = getMovieInfo(id, "reviews");
+  // const { data: reviews } = getMovieInfo(id, "reviews");
   return (
     <div className=" bg-black">
       <div className="flex container">

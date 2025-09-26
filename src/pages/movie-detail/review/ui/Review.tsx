@@ -1,5 +1,5 @@
 import { useMovie } from '@/entities/movie';
-import React, { memo, type FC } from 'react'
+import { memo } from 'react'
 import { useOutletContext } from 'react-router-dom';
 
 // interface Props {
@@ -16,13 +16,13 @@ interface IReview {
   created_at: string;
 }
 
-export const Review = memo((props) => {
+export const Review = memo(() => {
   
   const { id } = useOutletContext<ContextType>();
 
-  const { getMovieById, getMovieInfo } = useMovie();
-  const { data } = getMovieById(id);
-  const { data: imageData } = getMovieInfo(id, "images");
+  const {  getMovieInfo } = useMovie();
+  // const { data } = getMovieById(id);
+  // const { data: imageData } = getMovieInfo(id, "images");
   const { data: reviews } = getMovieInfo(id, "reviews");
   if (!id) return null;
 

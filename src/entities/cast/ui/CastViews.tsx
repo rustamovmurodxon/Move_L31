@@ -12,7 +12,7 @@ export const CastViews:FC<Props> = memo((props) => {
     const {id,type}=props
     const {getCasts} =useCast()
     const {data}=getCasts(id)
-    const [isloading, setLoading]=useState(true)
+    const [isloading]=useState(true)
     console.log(data && data[type]);
     const navigate=useNavigate()
     {
