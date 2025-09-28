@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Select } from "antd";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const genres = [
   { id: 28, name: "Action" },
@@ -26,7 +27,7 @@ export const genres = [
 
 export const MovieGenreFilter = memo(() => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const { t } = useTranslation();
   const selected = searchParams.get("with_genres")?.split(",") || [];
 
   const handleChange = (values: string[]) => {
@@ -44,7 +45,7 @@ export const MovieGenreFilter = memo(() => {
   return (
     <Select
       mode="multiple"
-      placeholder="Select genres"
+      placeholder={t("selectGender")}
       value={selected}
       onChange={handleChange}
       options={genres.map((g) => ({ label: g.name, value: String(g.id) }))}

@@ -1,0 +1,28 @@
+{
+  "greeting": "Hello world",
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "movies": "Movies",
+      "ticket": "Ticket",
+      "search": "Search"
+    }
+  },
+  "footer": {
+    "GooglePlay": "Google Play",
+    "AppStore": "App Store",
+    "Публичнаяоферта": "Public offer",
+    "Реклама": "Advertisement",
+    "F.A.Q": "F.A.Q",
+    "Контакты": "Contacts",
+    "Категории": "Categories",
+    "Кино": "Cinema",
+    "Театр": "Theatre",
+    "Концерты": "Concerts",
+    "Спорт": "Sports",
+    "Социальныесети": "Social networks",
+    "Связатьсяcнами": "Contact us"
+  },
+  "selectDecade": "Select decade",
+  "selectGender": "Select gender"
+}

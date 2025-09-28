@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Select } from "antd";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const decades = [
   { label: "1840s", value: { gte: "1840-01-01", lte: "1849-12-31" } },
@@ -26,7 +27,7 @@ export const decades = [
 
 export const DateFilter = memo(() => {
   const [_, setSearchParams] = useSearchParams();
-
+  const { t } = useTranslation();
   const handleChange = (val: string) => {
     const decade = decades.find((d) => d.label === val);
     if (decade) {
@@ -41,7 +42,7 @@ export const DateFilter = memo(() => {
 
   return (
     <Select
-      placeholder="Select Decade"
+      placeholder={t("selectDecade")}
       options={decades.map((d) => ({ label: d.label, value: d.label }))}
       onChange={handleChange}
       className="w-40"

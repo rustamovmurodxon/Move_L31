@@ -1,0 +1,28 @@
+{
+  "greeting": "Salom dunyo",
+  "header": {
+    "navigation": {
+      "home": "Bosh sahifa",
+      "movies": "Filmlar",
+      "ticket": "Chipta",
+      "search": "Qidirish"
+    }
+  },
+  "footer": {
+    "GooglePlay": "Google Play",
+    "AppStore": "App Store",
+    "Публичнаяоферта": "Ommaviy oferta",
+    "Реклама": "Reklama",
+    "F.A.Q": "Savol-javoblar",
+    "Контакты": "Aloqa",
+    "Категории": "Kategoriyalar",
+    "Кино": "Kino",
+    "Театр": "Teatr",
+    "Концерты": "Konsertlar",
+    "Спорт": "Sport",
+    "Социальныесети": "Ijtimoiy tarmoqlar",
+    "Связатьсяcнами": "Biz bilan bog‘lanish"
+  },
+  "selectDecade": "O‘n yillikni tanlang",
+  "selectGender": "Jinsni tanlang"
+}
